@@ -5,6 +5,7 @@ import 'package:cat_app_flutter/features/authentication/infrastructure/gateways/
 import 'package:cat_app_flutter/features/authentication/utils/constants/authentications_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -12,10 +13,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => WelcomeBloc(
-          getUserUseCase: GetUserUseCase(
-              userRepository: UserGateway(
-                  userRemoteDataSource: UserRemoteDataSourceImpl()))),
+      create: (_) => GetIt.instance.get<WelcomeBloc>(),
       child: const Scaffold(
         body: _View(),
       ),

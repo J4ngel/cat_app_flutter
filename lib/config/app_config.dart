@@ -1,3 +1,4 @@
+import 'package:cat_app_flutter/core/di/dependency_injection.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppConfig {
@@ -10,5 +11,7 @@ class _AppConfigImpl implements AppConfig {
   @override
   Future start() async {
     WidgetsFlutterBinding.ensureInitialized();
+
+    await initializer();
   }
 }
