@@ -1,7 +1,4 @@
 import 'package:cat_app_flutter/features/authentication/application/bloc/welcome/welcome_bloc.dart';
-import 'package:cat_app_flutter/features/authentication/domain/use_cases/get_user_use_case.dart';
-import 'package:cat_app_flutter/features/authentication/infrastructure/data_sources/implementations/remote/user_remote_data_source_Impl.dart';
-import 'package:cat_app_flutter/features/authentication/infrastructure/gateways/user_gateway.dart';
 import 'package:cat_app_flutter/features/authentication/utils/constants/authentications_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,7 +50,7 @@ class _ViewState extends State<_View> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
             content: Text(state.contentNotification),
-          duration: Duration(seconds: 3),
+          duration: const Duration(seconds: 3),
         )
       );
       setState(() {
