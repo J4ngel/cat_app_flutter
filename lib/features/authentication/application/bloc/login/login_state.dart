@@ -10,8 +10,8 @@ final class LoginState extends Equatable {
 }
 
 final class InitialState extends LoginState{
-  const InitialState(): super(
-      data: const LoginDto.empty()
+   InitialState(): super(
+      data: LoginDto.empty()
   );
 
 }

@@ -174,18 +174,16 @@ class InputForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 10.0, bottom: 5),
-          child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                  style: const TextStyle(
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold
-                  ),
-                  label
-              )
+          child: Text(
+              style: const TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold
+              ),
+              label
           ),
         ),
         TextFormField(
@@ -201,7 +199,8 @@ class InputForm extends StatelessWidget {
           onChanged: onChangeText,
         ),
         if (description != null)
-          Padding(
+          Container(
+            color: Colors.green,
             padding: const EdgeInsets.only(top: 5),
             child: Align(
                 alignment: Alignment.centerRight,

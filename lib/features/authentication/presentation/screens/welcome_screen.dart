@@ -39,10 +39,17 @@ class _View extends StatelessWidget {
                 final event = ChangePasswordEvent(newPassword: value);
                 context.read<LoginBloc>().add(event);
               },
+              emailValidator: (_){
+                return context.read<LoginBloc>().state.data.emailError;
+              },
+              passwordValidator: (_){
+                return context.read<LoginBloc>().state.data.passwordError;
+              },
               onPressLogin: (){
 
               },
             ),
+            const Text('Registrarse')
           ],
         )
       )
@@ -51,8 +58,8 @@ class _View extends StatelessWidget {
 
   void _listener(BuildContext context, state) {
     if(state is DataLoginUpdated){
-      print(state.data.email);
-      print(state.data.password);
+      debugPrint(state.data.email.getOrNull());
+      debugPrint(state.data.password.getOrNull());
     }
   }
 }
