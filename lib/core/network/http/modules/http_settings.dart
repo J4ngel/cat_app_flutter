@@ -22,7 +22,7 @@ class HttpSettings extends BaseHttpSettings with InterceptorMixin, BaseOptionsMi
     this.showLogs = false,
     this.httpTimeouts = const HttpTimeouts(),
     this.contentType = CoreConstants.defaultRequestContentType,
-    super.interceptors = const []
+    List<Interceptor> interceptors = const []
   }
       ) : super(
       baseOptions: BaseOptions(
@@ -31,7 +31,8 @@ class HttpSettings extends BaseHttpSettings with InterceptorMixin, BaseOptionsMi
           connectTimeout: Duration(milliseconds: httpTimeouts.connectionTimeout),
           sendTimeout: Duration(milliseconds: httpTimeouts.sendTimeout),
           receiveTimeout: Duration(milliseconds: httpTimeouts.receiveTimeout)
-      )
+      ),
+      interceptors: List.from(interceptors)
   ){
     _setUp();
   }

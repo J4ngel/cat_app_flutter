@@ -10,13 +10,13 @@ class BaseHttpSettings {
 
 mixin InterceptorMixin on BaseHttpSettings {
   void withLoggerInterceptor(){
-    super.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
+    interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
   }
 }
 
 mixin BaseOptionsMixin on BaseHttpSettings {
   void defaultConnection() {
-    super.baseOptions.copyWith(
+    baseOptions.copyWith(
         connectTimeout: const Duration(
             milliseconds: CoreConstants.defaultRequestConnectionTimeout
         ),
@@ -29,7 +29,7 @@ mixin BaseOptionsMixin on BaseHttpSettings {
     );
   }
   void slowlyConnection() {
-    super.baseOptions.copyWith(
+    baseOptions.copyWith(
         connectTimeout: const Duration(
             milliseconds: CoreConstants.defaultSlowlyRequestConnectionTimeout
         ),
