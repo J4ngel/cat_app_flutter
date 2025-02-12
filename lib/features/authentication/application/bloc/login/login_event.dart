@@ -15,3 +15,7 @@ final class ChangePasswordEvent extends LoginEvent{
 
   final String newPassword;
 }
+
+final class SuccessEvent extends LoginEvent{
+
+}

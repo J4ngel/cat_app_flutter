@@ -42,4 +42,6 @@ final class LoginDto extends BaseDto {
       invalidEmailMessage: AuthenticationStrings.I.invalidEmailString
     );
   }
+
+  bool get isValid => email.isValid() && password.isValid();
 }

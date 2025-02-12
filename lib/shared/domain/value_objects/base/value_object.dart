@@ -8,6 +8,8 @@ abstract class ValueObject<T> {
 
   const ValueObject(this.value);
 
+  bool isValid()=> value.fold((_) => false, (_) => true);
+
   T? getOrNull(){
     return value.fold(
         (failure) => null,
